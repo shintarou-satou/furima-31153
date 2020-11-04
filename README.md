@@ -50,14 +50,15 @@
 
 
 ##addressテーブル
-| Column                | Type    | Options    |
-|-----------------------|---------|------------|
-| postal_code           | string  | null:false |
-| todoufuken_address_id | integer | null:false |
-| shityouson_address    | string  | null:false |
-| banchi_address        | string  | null:false |
-| building              | string  |            |
-| phone_number          | string  | null:false |
+| Column                | Type      | Options                       |
+|-----------------------|-----------|-------------------------------|
+| postal_code           | string    | null:false                    |
+| todoufuken_address_id | integer   | null:false                    |
+| shityouson_address    | string    | null:false                    |
+| banchi_address        | string    | null:false                    |
+| building              | string    |                               |
+| phone_number          | string    | null:false                    |
+| bought                | reference | null:false, foreign_key: true |
 
 
 ##Association
