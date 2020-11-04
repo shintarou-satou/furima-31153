@@ -20,17 +20,17 @@
 
 
 ##productsテーブル
-| Column                | Type      |  Options                      |
-|-----------------------|-----------|-------------------------------|
-| product               | string    | null:false                    |
-| explanation           | text      | null:false                    |
+| Column                | Type       |  Options                      |
+|-----------------------|------------|-------------------------------|
+| product               | string     | null:false                    |
+| explanation           | text       | null:false                    |
 | category_id           | integer    | null:false                    |
-| condition_id          | integer   | null:false                    |
+| condition_id          | integer    | null:false                    |
 | delivery_fee_id       | integer    | null:false                    |
-| todoufuken_address_id | integer   | null:false                    |
-| shipping_time_id      | integer   | null:false                    |
-| price                 | integer   | null:false                    |
-| user                  | reference | null:false, foreign_key: true |    |
+| todoufuken_address_id | integer    | null:false                    |
+| shipping_time_id      | integer    | null:false                    |
+| price                 | integer    | null:false                    |
+| user                  | references | null:false, foreign_key: true |
 
 ##Association
 -has_one :bought
@@ -40,8 +40,8 @@
 ##boughtsテーブル
 | Column  | Type       | Options                       |
 |---------|------------|-------------------------------|
-| user    | reference  | null:false, foreign_key: true |
-| product | reference  | null:false, foreign_key: true |
+| user    | references | null:false, foreign_key: true |
+| product | references | null:false, foreign_key: true |
 
 ##Association
 -belongs_to :user
@@ -50,15 +50,15 @@
 
 
 ##addressテーブル
-| Column                | Type      | Options                       |
-|-----------------------|-----------|-------------------------------|
-| postal_code           | string    | null:false                    |
-| todoufuken_address_id | integer   | null:false                    |
-| shityouson_address    | string    | null:false                    |
-| banchi_address        | string    | null:false                    |
-| building              | string    |                               |
-| phone_number          | string    | null:false                    |
-| bought                | reference | null:false, foreign_key: true |
+| Column                | Type       | Options                       |
+|-----------------------|------------|-------------------------------|
+| postal_code           | string     | null:false                    |
+| todoufuken_address_id | integer    | null:false                    |
+| shityouson_address    | string     | null:false                    |
+| banchi_address        | string     | null:false                    |
+| building              | string     |                               |
+| phone_number          | string     | null:false                    |
+| bought                | references | null:false, foreign_key: true |
 
 
 ##Association
