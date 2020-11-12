@@ -29,29 +29,29 @@ RSpec.describe Product, type: :model do
         expect(@product.errors.full_messages).to include("Explanation can't be blank")
         end
         it"カテゴリーの情報が必須であること"do
-        @product.category_id = ""
+        @product.category_id = 0
         @product.valid?
-        expect(@product.errors.full_messages).to include("Category is not a number")
+        expect(@product.errors.full_messages).to include("Category must be other than 0")
         end
         it"商品の状態についての情報が必須であること"do
-        @product.condition_id = ""
+        @product.condition_id = 0
         @product.valid?
-        expect(@product.errors.full_messages).to include("Condition is not a number")
+        expect(@product.errors.full_messages).to include("Condition must be other than 0")
         end
         it"配送料の負担についての情報が必須であること"do
-        @product.delivery_fee_id = ""
+        @product.delivery_fee_id = 0
         @product.valid?
-        expect(@product.errors.full_messages).to include("Delivery fee is not a number")
+        expect(@product.errors.full_messages).to include("Delivery fee must be other than 0")
         end
         it"発送元の地域についての情報が必須であること"do
-        @product.todoufuken_address_id = ""
+        @product.todoufuken_address_id = 0
         @product.valid?
-        expect(@product.errors.full_messages).to include("Todoufuken address is not a number")
+        expect(@product.errors.full_messages).to include("Todoufuken address must be other than 0")
         end
         it"発送までの日数についての情報が必須であること"do
-        @product.shipping_time_id = ""
+        @product.shipping_time_id = 0
         @product.valid?
-        expect(@product.errors.full_messages).to include("Shipping time is not a number")
+        expect(@product.errors.full_messages).to include("Shipping time must be other than 0")
         end
         it"価格についての情報が必須であること"do
         @product.price = ""
@@ -59,12 +59,12 @@ RSpec.describe Product, type: :model do
         expect(@product.errors.full_messages).to include("Price can't be blank")
         end
         it"価格の範囲が、¥300~¥9,999,999の間であること"do
-        @product.price = "299"
+        @product.price = 299
         @product.valid?
         expect(@product.errors.full_messages).to include("Price is out of setting range")
         end
         it"価格の範囲が、¥300~¥9,999,999の間であること"do
-        @product.price = "10000000"
+        @product.price = 10000000
         @product.valid?
         expect(@product.errors.full_messages).to include("Price is out of setting range")
         end
@@ -78,13 +78,6 @@ RSpec.describe Product, type: :model do
         @product.valid?
         expect(@product.errors.full_messages).to include("Price is out of setting range")
         end
-
-
-#   - ログイン状態のユーザーだけが、商品出品ページへ遷移できること
-#  - ログアウト状態のユーザーは、商品出品ページへ遷移しようとすると、ログインページへ遷移するこ
-#  - 入力された販売価格によって、販売手数料や販売利益の表示が変わること
-#  - エラーハンドリングができていること（適切では無い値が入力された場合、情報は保存されず、エラーメッセージを出力させること）
-#  - 入力に問題がある状態で出品ボタンが押されたら、出品ページに戻りエラーメッセージが表示されること
-  end
+    end
   end
 end
