@@ -16,7 +16,7 @@
 
 ##Association
 -has_many :products
--has_many :boughts
+-has_many :orders
 
 
 ##productsテーブル
@@ -33,11 +33,11 @@
 | user                  | references | null:false, foreign_key: true |
 
 ##Association
--has_one :bought
+-has_one :order
 -belongs_to :user
 
 
-##boughtsテーブル
+##ordersテーブル
 | Column  | Type       | Options                       |
 |---------|------------|-------------------------------|
 | user    | references | null:false, foreign_key: true |
@@ -58,8 +58,8 @@
 | banchi_address        | string     | null:false                    |
 | building              | string     |                               |
 | phone_number          | string     | null:false                    |
-| bought                | references | null:false, foreign_key: true |
+| order                 | references | null:false, foreign_key: true |
 
 
 ##Association
--belongs_to :bought
+-belongs_to :order
