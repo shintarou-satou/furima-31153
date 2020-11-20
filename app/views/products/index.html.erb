@@ -132,11 +132,13 @@
         <% @products.each do |product| %>
           <%= link_to product_path(product) do %>
             <div class='item-img-content'>
-               <%= image_tag product.image, class: "item-img" %>
+               <%= image_tag product.image, class: "item-img" %> 
           <%# 商品が売れていればsold outを表示しましょう %>
+           <% if product.order != nil %> 
                <div class='sold-out'>
                  <span>Sold Out!!</span>
-              </div>
+               </div>
+           <% end %> 
           <%# //商品が売れていればsold outを表示しましょう %>
             </div>
         <div class='item-info'>

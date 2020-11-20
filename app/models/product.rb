@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   belongs_to :todoufuken_address
   belongs_to :shipping_time
   
-  has_one :bought
+  has_one :order
   belongs_to :user
   has_one_attached :image
 
