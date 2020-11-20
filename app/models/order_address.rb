@@ -1,7 +1,7 @@
 class OrderAddress
 
   include ActiveModel::Model
-  attr_accessor :user_id, :product_id, :postal_code, :todoufuken_address_id, :shityouson_address, :banchi_address, :building, :phone_number, :order
+  attr_accessor :user_id, :product_id, :postal_code, :todoufuken_address_id, :shityouson_address, :banchi_address, :building, :phone_number, :order, :token
   
 
  with_options  presence: true do
@@ -9,7 +9,8 @@ class OrderAddress
     validates :todoufuken_address_id,   numericality: { other_than: 0, message: "can't be blank" }
     validates :shityouson_address
     validates :banchi_address
-    validates :phone_number,    format: {with: /\A[0-9]{0-11}\z/, message: "is invalid."}
+    validates :phone_number,    format: {with: /\A[0-9]{1,11}\z/, message: "is invalid."}
+    validates :token
   end
 
   def save
